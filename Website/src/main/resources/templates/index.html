@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<nav th:replace="layout :: header"></nav>
+	<br />
+	<br />
+	<br />
+	<br />
+	<h1>Chào Mừng Đến Với Project Của Tao</h1>
+	<h2>Mày Hãy Chọn chức Năng Đi</h2>
+	<div class="collapse navbar-collapse" id="menu">
+		<ul class="nav navbar-nav">
+			<li><a th:href="@{/dondangkykethon/create}">Đăng Kí Kết Hôn</a></li>
+			<li><a th:href="@{/dondangkykethon}">Xem Danh Sách Đã Đăng Ký</a></li>
+			<li><a th:href="@{/honnhan/create}">Ghi Thông Tin Vào Sổ Hôn Nhân</a></li>
+			<li><a th:href="@{/honnhan}">Hôn Nhân Đã Đăng Ký</a></li>
+		</ul>
+	</div>
+<br/>
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
