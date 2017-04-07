@@ -12,7 +12,7 @@
 			</button>
 			<span th:text="${success}"></span>
 		</div>
-
+		<br /> <br /> <br /> <br /> <br />
 		<th:block th:if="${#lists.isEmpty(honnhans)}">
 			<h3>No honnhans</h3>
 		</th:block>
@@ -29,41 +29,36 @@
 				</form>
 			</div>
 			<br />
-			
 			<div class="row">
-			<h1>Thông Tin Đơn</h1>
-				<table class="table table-bordered table-hover">
+				
+				<table class="table table-bordered table-hover" th:each="honnhan,iterStat : ${honnhans}">
+					<thead>
+					<th colspan="6"> <h1>Thông Tin Đơn</h1></th>
+					</thead>
 					<thead>
 						<tr>
-							
 							<th>Người Duyệt</th>
 							<th>Mã Đơn Đăng Ký</th>
-							<th>Nơi Đăng Ký</th>
-							<th>Trạng Thái</th>
-							<th>Edit</th>
-							<th>Delete</th>
+							<th colspan="2">Nơi Đăng Ký</th>
+							<th colspan="2">Trạng Thái</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="honnhan,iterStat : ${honnhans}">
-							
+						<tr>
+
 							<td th:text="${honnhan.name}"></td>
 							<td th:text="${honnhan.madondangky}"></td>
-							<td th:text="${honnhan.noidangky}"></td>
-							<td th:text="${honnhan.trangthai}"></td>
-							<td><a th:href="@{/honnhan/{id}/edit(id=${honnhan.id})}"><span
-									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a th:href="@{/honnhan/{id}/delete(id=${honnhan.id})}"><span
-									class="glyphicon glyphicon-trash"></span></a></td>
+							<td colspan="2" th:text="${honnhan.noidangky}"></td>
+							<td colspan="2" th:text="${honnhan.trangthai}"></td>
 						</tr>
 					</tbody>
-				</table>
-			</div>
-			
-			
-			<div class="row">
-			<h1>Thông Tin Người Nam</h1>
-				<table class="table table-bordered table-hover">
+					<!-- Thông Tin Người Nam -->
+					<thead>
+						<tr>
+							<td colspan="6"><h3>Người Nam</h3></td>
+						</tr>
+					</thead>
+
 					<thead>
 						<tr>
 							<th>Họ Tên</th>
@@ -72,32 +67,27 @@
 							<th>Quốc Tịch</th>
 							<th>Nơi Cư Trú</th>
 							<th>Chứng Minh Nhân Dân</th>
-							<th>Edit</th>
-							<th>Delete</th>
 						</tr>
 					</thead>
+
 					<tbody>
-						<tr th:each="honnhan,iterStat : ${honnhans}">
-							
+						<tr>
+
 							<td th:text="${honnhan.nam_hoten}"></td>
 							<td th:text="${honnhan.nam_ngaysinh}"></td>
 							<td th:text="${honnhan.nam_dantoc}"></td>
 							<td th:text="${honnhan.nam_quoctich}"></td>
 							<td th:text="${honnhan.nam_noicutru}"></td>
 							<td th:text="${honnhan.nam_cmnd}"></td>
-							<td><a th:href="@{/honnhan/{id}/edit(id=${honnhan.id})}"><span
-									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a th:href="@{/honnhan/{id}/delete(id=${honnhan.id})}"><span
-									class="glyphicon glyphicon-trash"></span></a></td>
 						</tr>
 					</tbody>
-				</table>
-			</div>
-			
-			
-			<div class="row">
-			<h1>Thông Tin Người Nữ</h1>
-				<table class="table table-bordered table-hover">
+
+					<!-- Thông Tin Người Nam -->
+					<thead>
+						<tr>
+							<td colspan="6"><h3>Người Nữ</h3></td>
+						</tr>
+					</thead>
 					<thead>
 						<tr>
 							<th>Họ Tên</th>
@@ -106,31 +96,38 @@
 							<th>Quốc Tịch</th>
 							<th>Nơi Cư Trú</th>
 							<th>Chứng Minh Nhân Dân</th>
-							<th>Edit</th>
-							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="honnhan,iterStat : ${honnhans}">
-							
+						<tr>
+
 							<td th:text="${honnhan.nu_hoten}"></td>
 							<td th:text="${honnhan.nu_ngaysinh}"></td>
 							<td th:text="${honnhan.nu_dantoc}"></td>
 							<td th:text="${honnhan.nu_quoctich}"></td>
 							<td th:text="${honnhan.nu_noicutru}"></td>
 							<td th:text="${honnhan.nu_cmnd}"></td>
-							<td><a th:href="@{/honnhan/{id}/edit(id=${honnhan.id})}"><span
-									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a th:href="@{/honnhan/{id}/delete(id=${honnhan.id})}"><span
-									class="glyphicon glyphicon-trash"></span></a></td>
 						</tr>
 					</tbody>
+					<thead>
+						<tr>
+							<td colspan="3"><a th:href="@{/honnhan/{id}/edit(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-pencil"></span></a></td>
+							<td colspan="3"><a th:href="@{/honnhan/{id}/delete(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-trash"></span></a></td>
+						</tr>
+					</thead>
 				</table>
 			</div>
+
 		</th:block>
 	</div>
 	<!-- /.container -->
-
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 	<footer th:replace="layout :: footer"></footer>
 </body>
 </html>

@@ -19,8 +19,7 @@ public class HonNhan implements Serializable {
 	@Column(name = "hn_id", nullable = false)
 	private int id;
 
-	@NotEmpty
-	@Column(name = "u_id", nullable = false)
+	@Column(name = "u_id")
 	private String name;
 
 	@Column(name = "ddkkh_id", nullable = false)
@@ -29,7 +28,7 @@ public class HonNhan implements Serializable {
 	@Column(name = "hn_noidangky", nullable = false)
 	private String noidangky;
 
-	@Column(name = "hn_trangthai", nullable = false)
+	@Column(name = "hn_trangthai")
 	private String trangthai;
 	//Thong tin nam
 	@Column(name = "nam_hoten", nullable = false)
