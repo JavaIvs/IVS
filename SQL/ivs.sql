@@ -1,50 +1,28 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     3/31/2017 5:06:27 PM                         */
+/* Created on:     4/7/2017 1:14:18 PM                          */
 /*==============================================================*/
 
 
-drop table if exists CHONG;
-
-drop table if exists CM;
+drop table if exists DONDANGKYKETHON;
 
 drop table if exists HONNHAN;
 
-drop table if exists QUYEN;
-
-drop table if exists TAIKHOAN;
-
-drop table if exists TAIKHOAN_QUYEN;
-
-drop table if exists VO;
+drop table if exists USER;
 
 /*==============================================================*/
-/* Table: CHONG                                                 */
+/* Table: DONDANGKYKETHON                                       */
 /*==============================================================*/
-create table CHONG
+create table DONDANGKYKETHON
 (
-   CHONG_ID             int not null,
-   CM_ID                int,
+   DDKKH_ID             int not null,
    HN_ID                int,
-   primary key (CHONG_ID)
-);
-
-/*==============================================================*/
-/* Table: CM                                                    */
-/*==============================================================*/
-create table CM
-(
-   CM_ID                int not null,
-   CM_TEN               varchar(50) not null,
-   CM_NGAYSINH          date not null,
-   CM_CMNN              varchar(50) not null,
-   CM_NOICAP            varchar(100) not null,
-   CM_NGAYCAP           date not null,
-   CM_QUOCTICH          varchar(50) not null,
-   CM_DANTOC            varchar(50) not null,
-   CM_SOLANKETHON       tinyint not null,
-   CM_DIACHI            varchar(100) not null,
-   primary key (CM_ID)
+   DDKKH_CMND           varchar(50) not null,
+   DDKKH_NGAYDK         date not null,
+   DDKKH_NGAYHEN        date not null,
+   DDKKH_NGAYNHAN       date,
+   DDKKH_GHICHU         varchar(50),
+   primary key (DDKKH_ID)
 );
 
 /*==============================================================*/
@@ -53,73 +31,42 @@ create table CM
 create table HONNHAN
 (
    HN_ID                int not null,
-   TK_ID                int,
-   HN_TINHTRANG         varchar(50) not null,
+   U_ID                 int,
+   DDKKH_ID             int,
+   HN_NOIDANGKY         varchar(50) not null,
    HN_TRANGTHAI         varchar(50) not null,
-   HN_NGAYDUYET         date,
+   NAM_HOTEN            varchar(50) not null,
+   NAM_NGAYSINH         date not null,
+   NAM_DANTOC           varchar(50) not null,
+   NAM_QUOCTICH         varchar(50) not null,
+   NAM_NOICUTRU         varchar(50) not null,
+   NAM_CMND             varchar(50) not null,
+   NU_HOTEN             varchar(50) not null,
+   NU_NGAYSINH          date not null,
+   NU_DANTOC            varchar(50) not null,
+   NU_QUOCTICH          varchar(50) not null,
+   NU_NOICUTRU          varchar(50) not null,
+   NU_CMND              varchar(50) not null,
    primary key (HN_ID)
 );
 
 /*==============================================================*/
-/* Table: QUYEN                                                 */
+/* Table: USER                                                  */
 /*==============================================================*/
-create table QUYEN
+create table USER
 (
-   Q_ID                 int not null,
-   Q_QUYEN              varchar(50) not null,
-   primary key (Q_ID)
+   U_ID                 int not null,
+   U_NAME               varchar(50) not null,
+   U_PASS               varchar(50) not null,
+   primary key (U_ID)
 );
 
-/*==============================================================*/
-/* Table: TAIKHOAN                                              */
-/*==============================================================*/
-create table TAIKHOAN
-(
-   TK_ID                int not null,
-   TK_USERNAME          varchar(50) not null,
-   TK_PASSWORD          varchar(50) not null,
-   primary key (TK_ID)
-);
-
-/*==============================================================*/
-/* Table: TAIKHOAN_QUYEN                                        */
-/*==============================================================*/
-create table TAIKHOAN_QUYEN
-(
-   TK_ID                int not null,
-   Q_ID                 int not null,
-   primary key (TK_ID, Q_ID)
-);
-
-/*==============================================================*/
-/* Table: VO                                                    */
-/*==============================================================*/
-create table VO
-(
-   VO_ID                int not null,
-   CM_ID                int,
-   HN_ID                int,
-   primary key (VO_ID)
-);
-
-alter table CHONG add constraint FK_CM_CHONG foreign key (CM_ID)
-      references CM (CM_ID) on delete restrict on update restrict;
-
-alter table CHONG add constraint FK_CUOIVO foreign key (HN_ID)
+alter table DONDANGKYKETHON add constraint FK_CO foreign key (HN_ID)
       references HONNHAN (HN_ID) on delete restrict on update restrict;
 
-alter table HONNHAN add constraint FK_DUYET_HN foreign key (TK_ID)
-      references TAIKHOAN (TK_ID) on delete restrict on update restrict;
+alter table HONNHAN add constraint FK_CO2 foreign key (DDKKH_ID)
+      references DONDANGKYKETHON (DDKKH_ID) on delete restrict on update restrict;
 
-alter table TAIKHOAN_QUYEN add constraint FK_TAIKHOAN_QUYEN foreign key (TK_ID)
-      references TAIKHOAN (TK_ID) on delete restrict on update restrict;
-
-alter table TAIKHOAN_QUYEN add constraint FK_TAIKHOAN_QUYEN2 foreign key (Q_ID)
-      references QUYEN (Q_ID) on delete restrict on update restrict;
-
-alter table VO add constraint FK_CM_VO foreign key (CM_ID)
-      references CM (CM_ID) on delete restrict on update restrict;
-
-alter table VO add constraint FK_LAYCHONG foreign key (HN_ID)
-      references HONNHAN (HN_ID) on delete restrict on update restrict;
+alter table HONNHAN add constraint FK_DUYET foreign key (U_ID)
+      references USER (U_ID) on delete restrict on update restrict;
 
