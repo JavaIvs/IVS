@@ -30,10 +30,13 @@
 			</div>
 			<br />
 			<div class="row">
-				
-				<table class="table table-bordered table-hover" th:each="honnhan,iterStat : ${honnhans}">
+
+				<table class="table table-bordered table-hover"
+					th:each="honnhan,iterStat : ${honnhans}">
 					<thead>
-					<th colspan="6"> <h1>Thông Tin Đơn</h1></th>
+						<th colspan="6">
+							<h1>Thông Tin Đơn</h1>
+						</th>
 					</thead>
 					<thead>
 						<tr>
@@ -111,15 +114,22 @@
 					</tbody>
 					<thead>
 						<tr>
-							<td colspan="3"><a th:href="@{/honnhan/{id}/edit(id=${honnhan.id})}"><span
+							<td colspan="2"><a
+								th:href="@{/honnhan/{id}/edit(id=${honnhan.id})}"><span
 									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td colspan="3"><a th:href="@{/honnhan/{id}/delete(id=${honnhan.id})}"><span
+							<td colspan="2"><a
+								th:href="@{/honnhan/{id}/delete(id=${honnhan.id})}"><span
 									class="glyphicon glyphicon-trash"></span></a></td>
+							<td colspan="1"><a
+								th:href="@{/honnhan/xacminh/{id}/edit(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-eye-open"></span></a></td>
+							<td colspan="1"><a
+								th:href="@{/honnhan/duyet/{id}/edit(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-heart-empty"></span></a></td>
 						</tr>
 					</thead>
 				</table>
 			</div>
-
 		</th:block>
 	</div>
 	<!-- /.container -->

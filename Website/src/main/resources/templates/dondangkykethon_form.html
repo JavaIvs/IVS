@@ -7,44 +7,36 @@
 		<div class="row">
 			<form action="#" th:action="@{/dondangkykethon/save}"
 				th:object="${dondangkykethon}" method="POST" novalidate="novalidate">
-				<input type="hidden" th:field="*{id}" /> <br />
-				<br />
-				<br />
-				<br />
+				<input type="hidden" th:field="*{id}" /> <br /> <br /> <br /> <br />
 				<br />
 				<h1>Đăng Ký Kết Hôn</h1>
-				<div class="col-sm-6 col-md-3" align="center"></div>
-				<div class="col-sm-6 col-md-3" align="center">
-				<div class="form-group">
-					
-					<label>Họ Tên Người Đăng Ký</label> <input type="text"
-						class="form-control" th:field="*{name}"
-						th:errorclass="field-error" /> <em
-						th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></em>
-				</div>
-				<div class="form-group">
-					<label>Chứng Minh Nhân Dân</label> <input type="text"
-						class="form-control" th:field="*{cmnd}" />
-				</div>
-				<div class="form-group">
-					<label>Ngày Đăng Ký</label> <input type="text" class="form-control"
-						th:field="*{ngaydangky}" />
-				</div>
-				<div class="form-group">
-					<label>Ngày Hẹn</label> <input type="text" class="form-control"
-						th:field="*{ngayhen}" />
-				</div>
-				<div class="form-group">
-					<label>Ngày Nhận</label> <input type="text" class="form-control"
-						th:field="*{ngaynhan}" />
-				</div>
-				<div class="form-group">
-					<label>Ghi Chú</label> <input type="text" class="form-control"
-						th:field="*{ghichu}" />
-				</div>
-				
-				<button type="submit" class="btn btn-primary">Save</button>
-				</div>
+					<div class="form-group">
+						<label>Họ Tên Người Đăng Ký</label> <input type="text"
+							class="form-control" th:field="*{name}"
+							th:errorclass="field-error" /> <em
+							th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></em>
+					</div>
+					<div class="form-group">
+						<label>Chứng Minh Nhân Dân</label> <input type="text"
+							class="form-control" th:field="*{cmnd}" />
+					</div>
+					<div class="form-group">
+						<label>Ngày Đăng Ký</label> <input type="text"
+							class="form-control" th:field="*{ngaydangky}" />
+					</div>
+					<div class="form-group">
+						<label>Ngày Hẹn</label> <input type="text" class="form-control"
+							th:field="*{ngayhen}" />
+					</div>
+					<div class="form-group">
+						<label>Ngày Nhận</label> <input type="text" class="form-control"
+							th:field="*{ngaynhan}" />
+					</div>
+					<div class="form-group">
+						<label>Ghi Chú</label> <input type="text" class="form-control"
+							th:field="*{ghichu}" />
+					</div>
+					<button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
 	</div>

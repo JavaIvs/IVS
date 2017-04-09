@@ -39,6 +39,18 @@ public class HonNhanController {
         return "honnhan_form";
     }
     
+    @GetMapping("/honnhan/xacminh/{id}/edit")
+    public String xacminh(@PathVariable int id, Model model) {
+        model.addAttribute("honnhan", honnhanService.findOne(id));
+        return "xacminh";
+    }
+    
+    @GetMapping("/honnhan/duyet/{id}/edit")
+    public String duyet(@PathVariable int id, Model model) {
+        model.addAttribute("honnhan", honnhanService.findOne(id));
+        return "duyet";
+    }
+    
     @PostMapping("/honnhan/save")
     public String save(@Valid HonNhan honnhan, BindingResult result, RedirectAttributes redirect) {
         if (result.hasErrors()) {
