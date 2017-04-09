@@ -15,12 +15,6 @@
 				<div class="col-sm-6 col-md-3">
 					<h3>Thông tin đơn</h3>
 					<br />
-
-					<div class="form-group">
-						<label>Người Duyệt</label> <input type="text" class="form-control"
-							th:field="*{name}" th:errorclass="field-error" /> <em
-							th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></em>
-					</div>
 					<div class="form-group">
 						<label>Đơn Đăng Ký</label> <input type="text" class="form-control"
 							th:field="*{madondangky}" />
@@ -28,10 +22,6 @@
 					<div class="form-group">
 						<label>Nơi Đăng Ký</label> <input type="text" class="form-control"
 							th:field="*{noidangky}" />
-					</div>
-					<div class="form-group">
-						<label>Trang Thái</label> <input type="text" class="form-control"
-							th:field="*{trangthai}" />
 					</div>
 				</div>
 				<!-- Thông Nam -->
@@ -95,7 +85,15 @@
 				<div class="col-sm-6 col-md-3">
 					<br /> <br /> <br /> <br /> <br />
 					<h3>Chúng tôi cam kết những thông trên là hoàn toàn chính xác</h3>
-					<br /> <br />
+					<h4>Click vào 2 ô dưới đây</h4>
+					<div class="form-group">
+						<input type="text" onclick="value='1'" class="form-control"
+							th:field="*{name}" />
+					</div>
+					<div class="form-group">
+						<input type="text" onclick="value='0'" class="form-control"
+							th:field="*{trangthai}" />
+					</div>
 				</div>
 				<button type="submit" class="btn btn-primary">Save</button>
 			</form>

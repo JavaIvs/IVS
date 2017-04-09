@@ -49,10 +49,10 @@
 					<tbody>
 						<tr>
 
-							<td th:text="${honnhan.name}"></td>
+							<td th:text="(${honnhan.name}==1)?Admin:User"></td>
 							<td th:text="${honnhan.madondangky}"></td>
 							<td colspan="2" th:text="${honnhan.noidangky}"></td>
-							<td colspan="2" th:text="${honnhan.trangthai}"></td>
+							<td colspan="2" th:text="(${honnhan.name}==0)?Chưa+' '+Xác+' '+Minh:Đã+' '+Xác+' '+Minh"></td>
 						</tr>
 					</tbody>
 					<!-- Thông Tin Người Nam -->

@@ -11,17 +11,11 @@
 				<input type="hidden" th:field="*{id}" /> <br /> <br /> <br /> <br />
 				<br />
 				<!-- Thông Tin Đơn -->
-				<h1>Đăng Ký Hôn Nhân</h1>
+				<h1>Xác Minh Thông Tin</h1>
 				<br />
 				<div class="col-sm-6 col-md-3">
 					<h3>Thông tin đơn</h3>
 					<br />
-
-					<div class="form-group">
-						<label>Người Duyệt</label> <input type="text" class="form-control"
-							th:field="*{name}" th:errorclass="field-error" /> <em
-							th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></em>
-					</div>
 					<div class="form-group">
 						<label>Đơn Đăng Ký</label> <input type="text" class="form-control"
 							th:field="*{madondangky}" />
@@ -96,7 +90,11 @@
 					<br /> <br />
 				</div>
 				<div class="form-group">
-					<input type="text" onclick="value='1'" th:field="*{trangthai}" />
+					<label>Mã Người Xác Minh</label> <br/> <input type="text" onClick="trangthai.value='1'"
+						th:field="*{name}" />
+				</div>
+				<div class="form-group">
+					<input type="text" name="trangthai" onclick="value='1'" th:field="*{trangthai}" />
 				</div>
 				<button type="submit" class="btn btn-primary">Save</button>
 			</form>
