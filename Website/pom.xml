@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>QLKetHon</name>
-	<description>web site quản lý kết hôn sử dụng spring boot</description>
+	<description>web site quáº£n lÃ½ káº¿t hÃ´n sá»­ dá»¥ng spring boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -32,6 +32,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
