@@ -19,17 +19,17 @@ public class HonNhan implements Serializable {
 	@Column(name = "hn_id", nullable = false)
 	private int id;
 
-	@Column(name = "u_id")
-	private String name;
-
-	@Column(name = "ddkkh_id", nullable = false)
-	private String madondangky;
-
 	@Column(name = "hn_noidangky", nullable = false)
 	private String noidangky;
 
+	@Column(name = "ddkkh_id", nullable = false)
+	private int madondangky;
+	
+	@Column(name = "u_id")
+	private int name;
+	
 	@Column(name = "hn_trangthai")
-	private String trangthai;
+	private int trangthai;
 	//Thong tin nam
 	@Column(name = "nam_hoten", nullable = false)
 	private String nam_hoten;
@@ -62,15 +62,15 @@ public class HonNhan implements Serializable {
         super();
     }
 
-	public HonNhan(int id, String name, String madondangky, String noidangky, String trangthai, String nam_hoten,
+	public HonNhan(int id, String noidangky, int madondangky, int name, int trangthai, String nam_hoten,
 			String nam_ngaysinh, String nam_dantoc, String nam_quoctich, String nam_noicutru, String nam_cmnd,
 			String nu_hoten, String nu_ngaysinh, String nu_dantoc, String nu_quoctich, String nu_noicutru,
 			String nu_cmnd) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.madondangky = madondangky;
 		this.noidangky = noidangky;
+		this.madondangky = madondangky;
+		this.name = name;
 		this.trangthai = trangthai;
 		this.nam_hoten = nam_hoten;
 		this.nam_ngaysinh = nam_ngaysinh;
@@ -94,22 +94,6 @@ public class HonNhan implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getMadondangky() {
-		return madondangky;
-	}
-
-	public void setMadondangky(String madondangky) {
-		this.madondangky = madondangky;
-	}
-
 	public String getNoidangky() {
 		return noidangky;
 	}
@@ -118,11 +102,27 @@ public class HonNhan implements Serializable {
 		this.noidangky = noidangky;
 	}
 
-	public String getTrangthai() {
+	public int getMadondangky() {
+		return madondangky;
+	}
+
+	public void setMadondangky(int madondangky) {
+		this.madondangky = madondangky;
+	}
+
+	public int getName() {
+		return name;
+	}
+
+	public void setName(int name) {
+		this.name = name;
+	}
+
+	public int getTrangthai() {
 		return trangthai;
 	}
 
-	public void setTrangthai(String trangthai) {
+	public void setTrangthai(int trangthai) {
 		this.trangthai = trangthai;
 	}
 
@@ -221,5 +221,5 @@ public class HonNhan implements Serializable {
 	public void setNu_cmnd(String nu_cmnd) {
 		this.nu_cmnd = nu_cmnd;
 	}
-	
+
 }

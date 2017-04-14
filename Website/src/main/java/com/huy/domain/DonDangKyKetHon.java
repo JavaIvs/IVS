@@ -32,9 +32,6 @@ public class DonDangKyKetHon implements Serializable {
 	@Column(name = "ddkkh_ngayhen", nullable = false)
 	private String ngayhen;
 
-	@Column(name = "ddkkh_ngaynhan", nullable = true)
-	private String ngaynhan;
-
 	@Column(name = "ddkkh_ghichu", nullable = true)
 	private String ghichu;
 
@@ -42,15 +39,13 @@ public class DonDangKyKetHon implements Serializable {
         super();
     }
 
-	public DonDangKyKetHon(int id, String name, String cmnd, String ngaydangky, String ngayhen, String ngaynhan,
-			String ghichu) {
+	public DonDangKyKetHon(int id, String name, String cmnd, String ngaydangky, String ngayhen, String ghichu) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.cmnd = cmnd;
 		this.ngaydangky = ngaydangky;
 		this.ngayhen = ngayhen;
-		this.ngaynhan = ngaynhan;
 		this.ghichu = ghichu;
 	}
 
@@ -94,14 +89,6 @@ public class DonDangKyKetHon implements Serializable {
 		this.ngayhen = ngayhen;
 	}
 
-	public String getNgaynhan() {
-		return ngaynhan;
-	}
-
-	public void setNgaynhan(String ngaynhan) {
-		this.ngaynhan = ngaynhan;
-	}
-
 	public String getGhichu() {
 		return ghichu;
 	}
@@ -109,6 +96,5 @@ public class DonDangKyKetHon implements Serializable {
 	public void setGhichu(String ghichu) {
 		this.ghichu = ghichu;
 	}
-	
 
 }
