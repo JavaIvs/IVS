@@ -10,5 +10,5 @@ public class MainController {
 	@GetMapping("/") 
 	public String admin() {
 		return "layout";
-	}
+	}	
 }

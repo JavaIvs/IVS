@@ -37,11 +37,11 @@ public class HonNhan implements Serializable {
 	@Column(name = "nam_ngaysinh", nullable = false)
 	private String nam_ngaysinh;
 	@Column(name = "nam_dantoc", nullable = false)
-	private String nam_dantoc;
+	private int nam_dantoc;
 	@Column(name = "nam_quoctich", nullable = false)
-	private String nam_quoctich;
+	private int nam_quoctich;
 	@Column(name = "nam_xa", nullable = false)
-	private String nam_xa;
+	private int nam_xa;
 	@Column(name = "nam_cmnd", nullable = false)
 	private String nam_cmnd;
 	
@@ -51,11 +51,11 @@ public class HonNhan implements Serializable {
 	@Column(name = "nu_ngaysinh", nullable = false)
 	private String nu_ngaysinh;
 	@Column(name = "nu_dantoc", nullable = false)
-	private String nu_dantoc;
+	private int nu_dantoc;
 	@Column(name = "nu_quoctich", nullable = false)
-	private String nu_quoctich;
+	private int nu_quoctich;
 	@Column(name = "nu_xa", nullable = false)
-	private String nu_xa;
+	private int nu_xa;
 	@Column(name = "nu_cmnd", nullable = false)
 	private String nu_cmnd;
 
@@ -64,8 +64,8 @@ public class HonNhan implements Serializable {
     }
 
 	public HonNhan(int id, String ngaydangky, String ngayhen, int idxa, String trangthai, String namhoten,
-			String nam_ngaysinh, String nam_dantoc, String nam_quoctich, String nam_xa, String nam_cmnd,
-			String nu_hoten, String nu_ngaysinh, String nu_dantoc, String nu_quoctich, String nu_xa, String nu_cmnd) {
+			String nam_ngaysinh, int nam_dantoc, int nam_quoctich, int nam_xa, String nam_cmnd, String nu_hoten,
+			String nu_ngaysinh, int nu_dantoc, int nu_quoctich, int nu_xa, String nu_cmnd) {
 		super();
 		this.id = id;
 		this.ngaydangky = ngaydangky;
@@ -142,27 +142,27 @@ public class HonNhan implements Serializable {
 		this.nam_ngaysinh = nam_ngaysinh;
 	}
 
-	public String getNam_dantoc() {
+	public int getNam_dantoc() {
 		return nam_dantoc;
 	}
 
-	public void setNam_dantoc(String nam_dantoc) {
+	public void setNam_dantoc(int nam_dantoc) {
 		this.nam_dantoc = nam_dantoc;
 	}
 
-	public String getNam_quoctich() {
+	public int getNam_quoctich() {
 		return nam_quoctich;
 	}
 
-	public void setNam_quoctich(String nam_quoctich) {
+	public void setNam_quoctich(int nam_quoctich) {
 		this.nam_quoctich = nam_quoctich;
 	}
 
-	public String getNam_xa() {
+	public int getNam_xa() {
 		return nam_xa;
 	}
 
-	public void setNam_xa(String nam_xa) {
+	public void setNam_xa(int nam_xa) {
 		this.nam_xa = nam_xa;
 	}
 
@@ -190,27 +190,27 @@ public class HonNhan implements Serializable {
 		this.nu_ngaysinh = nu_ngaysinh;
 	}
 
-	public String getNu_dantoc() {
+	public int getNu_dantoc() {
 		return nu_dantoc;
 	}
 
-	public void setNu_dantoc(String nu_dantoc) {
+	public void setNu_dantoc(int nu_dantoc) {
 		this.nu_dantoc = nu_dantoc;
 	}
 
-	public String getNu_quoctich() {
+	public int getNu_quoctich() {
 		return nu_quoctich;
 	}
 
-	public void setNu_quoctich(String nu_quoctich) {
+	public void setNu_quoctich(int nu_quoctich) {
 		this.nu_quoctich = nu_quoctich;
 	}
 
-	public String getNu_xa() {
+	public int getNu_xa() {
 		return nu_xa;
 	}
 
-	public void setNu_xa(String nu_xa) {
+	public void setNu_xa(int nu_xa) {
 		this.nu_xa = nu_xa;
 	}
 
@@ -221,5 +221,4 @@ public class HonNhan implements Serializable {
 	public void setNu_cmnd(String nu_cmnd) {
 		this.nu_cmnd = nu_cmnd;
 	}
-	
 }

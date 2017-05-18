@@ -16,6 +16,10 @@ import com.huy.domain.HonNhan;
 import com.huy.service.HonNhanService;
 import com.huy.domain.Xa;
 import com.huy.service.XaService;
+import com.huy.domain.DanToc;
+import com.huy.service.DanTocService;
+import com.huy.domain.QuocTich;
+import com.huy.service.QuocTichService;
 @Controller
 public class HonNhanController {
 	
@@ -25,10 +29,18 @@ public class HonNhanController {
 	@Autowired
 	private XaService xaService;
 	
+	@Autowired
+	private DanTocService dantocService;
+	
+	@Autowired
+	private QuocTichService quoctichService;
+	
     @GetMapping("/honnhan")
     public String index(Model model) {
         model.addAttribute("honnhans", honnhanService.findAll());
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "honnhan_list";
     }
     
@@ -36,6 +48,8 @@ public class HonNhanController {
     public String edit(@PathVariable int id, Model model) {
         model.addAttribute("honnhan", honnhanService.findOne(id));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "honnhan_form";
     }
     // Đăng kí kết hôn
@@ -43,6 +57,8 @@ public class HonNhanController {
     public String dangkykethon(Model model) {
         model.addAttribute("honnhan", new HonNhan());
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "honnhan_form";
     }
     
@@ -51,6 +67,8 @@ public class HonNhanController {
     public String chuaxacminh(Model model) {
         model.addAttribute("honnhans", honnhanService.phanloai("chuaxacminh"));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         model.addAttribute("honnhan", new HonNhan());
         return "chuaxacminh_list";
     }
@@ -59,6 +77,8 @@ public class HonNhanController {
     public String daxacminh(Model model) {
         model.addAttribute("honnhans", honnhanService.phanloai("daxacminh"));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         model.addAttribute("honnhan", new HonNhan());
         return "daxacminh_list";
     }
@@ -67,6 +87,8 @@ public class HonNhanController {
     public String daduyet(Model model) {
         model.addAttribute("honnhans", honnhanService.phanloai("daduyet"));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "daduyet_list";
     }
     
@@ -75,6 +97,8 @@ public class HonNhanController {
     public String xacminh(@PathVariable int id, Model model) {
         model.addAttribute("honnhan", honnhanService.findOne(id));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "xacminh";
     }
     
@@ -82,6 +106,8 @@ public class HonNhanController {
     public String duyet(@PathVariable int id, Model model) {
         model.addAttribute("honnhan", honnhanService.findOne(id));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "duyet";
     }
     
@@ -147,6 +173,8 @@ public class HonNhanController {
         
         model.addAttribute("honnhans", honnhanService.search(q));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "chuaxacminh_list";
     }
     
@@ -158,6 +186,8 @@ public class HonNhanController {
         
         model.addAttribute("honnhans", honnhanService.search(q));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "daxacminh_list";
     }
     
@@ -169,6 +199,8 @@ public class HonNhanController {
         
         model.addAttribute("honnhans", honnhanService.search(q));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "daduyet_list";
     }
     //In 
@@ -176,6 +208,8 @@ public class HonNhanController {
     public String in(@PathVariable int id, Model model) {
         model.addAttribute("honnhan", honnhanService.findOne(id));
         model.addAttribute("xas", xaService.findAll());
+        model.addAttribute("dantocs", dantocService.findAll());
+        model.addAttribute("quoctichs", quoctichService.findAll());
         return "in";
     }
 

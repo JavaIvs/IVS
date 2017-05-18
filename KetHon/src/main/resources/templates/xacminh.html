@@ -13,8 +13,14 @@
 				<h3>Thông tin đơn</h3>
 				<div class="form-group">
 					<label class="control-label col-sm-2 ">Xã</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<select class="form-control" th:field="*{idxa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
+					</div>
+					<div class="col-sm-10">
+						<select disabled="disabled" class="form-control" th:field="*{idxa}">
 							<option th:each="xa:${xas}" th:value="${xa.id}"
 								th:text="${xa.name}"></option>
 						</select> <br />
@@ -22,9 +28,13 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2">Ngày Đăng Ký</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<input id="ngaydk" type="date" class="form-control"
-							th:field="*{ngaydangky}" /> <br />
+							th:field="*{ngaydangky}" /><br />
+					</div>
+					<div class="col-sm-10">
+						<input disabled="disabled" id="ngaydk" type="date" class="form-control"
+							th:field="*{ngaydangky}" /><br />
 					</div>
 				</div>
 				<div hidden="" class="form-group">
@@ -47,81 +57,153 @@
 				<h3>Thông Tin Nam</h3>
 				<div class="form-group">
 					<label class="control-label col-sm-2">Họ Tên</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{namhoten}" />
+						<br />
+					</div>
+					<div class="col-sm-10">
+						<input disabled="disabled" type="text" class="form-control" th:field="*{namhoten}" />
 						<br />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2">Ngày Sinh</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<input type="date" class="form-control" th:field="*{nam_ngaysinh}" />
 						<br />
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2">Dân Tộc</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nam_dantoc}" />
+						<input disabled="disabled" type="date" class="form-control" th:field="*{nam_ngaysinh}" />
 						<br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Quốc Tịch</label>
+					<label class="control-label col-sm-2 ">Dân Tộc</label>
+					<div hidden="" class="col-sm-10">
+						<select class="form-control" th:field="*{nam_dantoc}">
+							<option th:each="dantoc:${dantocs}" th:value="${dantoc.id}"
+								th:text="${dantoc.name}"></option>
+						</select> <br />
+					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nam_quoctich}" />
-						<br />
+						<select disabled="disabled" class="form-control" th:field="*{nam_dantoc}">
+							<option th:each="dantoc:${dantocs}" th:value="${dantoc.id}"
+								th:text="${dantoc.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Nơi Cư Trú</label>
+					<label class="control-label col-sm-2 ">Quốc Tịch</label>
+					<div hidden="" class="col-sm-10">
+						<select class="form-control" th:field="*{nam_quoctich}">
+							<option th:each="quoctich:${quoctichs}" th:value="${quoctich.id}"
+								th:text="${quoctich.name}"></option>
+						</select> <br />
+					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nam_xa}" /><br />
+						<select disabled="disabled" class="form-control" th:field="*{nam_quoctich}">
+							<option th:each="quoctich:${quoctichs}" th:value="${quoctich.id}"
+								th:text="${quoctich.name}"></option>
+						</select> <br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2 ">Nơi Cư Trú</label>
+					<div hidden="" class="col-sm-10">
+						<select class="form-control" th:field="*{nam_xa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
+					</div>
+					<div class="col-sm-10">
+						<select disabled="disabled" class="form-control" th:field="*{nam_xa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2">CMND</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{nam_cmnd}" /><br />
+					</div>
+					<div class="col-sm-10">
+						<input disabled="disabled" type="text" class="form-control" th:field="*{nam_cmnd}" /><br />
 					</div>
 				</div>
 				<h3>Thông tin nữ</h3>
 				<br />
 				<div class="form-group">
 					<label class="control-label col-sm-2">Họ Tên</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{nu_hoten}" /><br />
+					</div>
+					<div class="col-sm-10">
+						<input disabled="disabled" type="text" class="form-control" th:field="*{nu_hoten}" /><br />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2">Ngày Sinh</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<input type="date" class="form-control" th:field="*{nu_ngaysinh}" /><br />
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2">Dân Tộc</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nu_dantoc}" /><br />
+						<input disabled="disabled" type="date" class="form-control" th:field="*{nu_ngaysinh}" /><br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Quốc Tịch</label>
+					<label class="control-label col-sm-2 ">Dân Tộc</label>
+					<div hidden="" class="col-sm-10">
+						<select class="form-control" th:field="*{nu_dantoc}">
+							<option th:each="dantoc:${dantocs}" th:value="${dantoc.id}"
+								th:text="${dantoc.name}"></option>
+						</select> <br />
+					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nu_quoctich}" />
-						<br />
+						<select disabled="disabled" class="form-control" th:field="*{nu_dantoc}">
+							<option th:each="dantoc:${dantocs}" th:value="${dantoc.id}"
+								th:text="${dantoc.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Nơi Cư Trú</label>
+					<label class="control-label col-sm-2 ">Quốc Tịch</label>
+					<div hidden="" class="col-sm-10">
+						<select class="form-control" th:field="*{nu_quoctich}">
+							<option th:each="quoctich:${quoctichs}" th:value="${quoctich.id}"
+								th:text="${quoctich.name}"></option>
+						</select> <br />
+					</div>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nu_xa}" /><br />
+						<select disabled="disabled" class="form-control" th:field="*{nu_quoctich}">
+							<option th:each="quoctich:${quoctichs}" th:value="${quoctich.id}"
+								th:text="${quoctich.name}"></option>
+						</select> <br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2 ">Nơi Cư Trú</label>
+					<div hidden="" class="col-sm-10">
+						<select class="form-control" th:field="*{nu_xa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
+					</div>
+					<div class="col-sm-10">
+						<select disabled="disabled" class="form-control" th:field="*{nu_xa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2">CMND</label>
-					<div class="col-sm-10">
+					<div hidden="" class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{nu_cmnd}" />
+						<br />
+					</div>
+					<div class="col-sm-10">
+						<input disabled="disabled" type="text" class="form-control" th:field="*{nu_cmnd}" />
 						<br />
 					</div>
 				</div>

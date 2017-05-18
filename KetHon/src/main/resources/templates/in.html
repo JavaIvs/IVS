@@ -6,32 +6,32 @@
 	<br />
 	<br />
 	<div class="jumbotron" th:object="${honnhan}">
-		<h1>Khai báo đăng ký hôn nhân thành công</h1>
-		<hr width="100%" align="center" />
-		<p th:text="'Mã hồ sơ đăng kí: '+${honnhan.id}"></p>
-		<hr width="100%" align="center" />
-		<br />
-		<p th:text="'Tên chồng: '+${honnhan.namhoten}"></p>
-		<p th:text="'Nơi cư trú: '+${honnhan.nam_xa}"></p>
-		<p th:text="'CMND: '+${honnhan.nam_cmnd}"></p>
-		<hr width="100%" align="center" />
-		<br />
-		<p th:text="'Tên vợ: '+${honnhan.nu_hoten}"></p>
-		<p th:text="'Nơi cư trú: '+${honnhan.nu_xa}"></p>
-		<p th:text="'CMND: '+${honnhan.nu_cmnd}"></p>
-		<hr width="100%" align="center" />
+		<h3 style="text-align: center;">
+			<strong>CỘNG HO&Agrave; X&Atilde; HỘI CHỦ NGHĨA VIỆT NAM</strong>
+		</h3>
+		<h4 style="text-align: center;">Độc lập - Tự do - Hạnh
+			ph&uacute;c</h4>
+		<p style="text-align: center;">_____***_____</p>
+		<h3 style="text-align: center;">Giấy Hẹn</h3><br/>
+		<p th:text="'Mã hồ sơ đăng kí: '+${honnhan.id}"></p><br/>
+		<p th:text="'Họ tên chồng:    '+${honnhan.namhoten}+'....................Họ tên vợ:  '+${honnhan.nu_hoten}"></p>
+		<p th:text="'Ngày sinh:    '+${honnhan.nam_ngaysinh}+'.................................................Ngày sinh:  '+${honnhan.nu_ngaysinh}"></p>
+		<p th:text="'Chứng minh số:    '+${honnhan.nam_cmnd}+'.................................Chứng minh số:  '+${honnhan.nu_cmnd}"></p>
+		<p th:text="'Vào ngày: '+${honnhan.ngayhen}"></p>
 		<div th:switch="${honnhan.idxa}">
 			<div th:each="xa: ${xas}">
 				<p th:case="${xa.id}"
-					th:text="'Anh/chị vui lòng mang theo những giấy tờ sau đến UBND xã ' + ${xa.name}+' để hoàn tất thủ tục đăng ký.'"></p>
+					th:text="'Mời anh/chị mang theo những giấy tờ sau đến xã: ' + ${xa.name}+' để hoàn thành thủ tục đăng ký kết hôn'"></p>
 			</div>
 		</div>
-		<p>Hồ sơ:</p>
-		<p>- Giấy xác nhận tình trạng hôn nhân</p>
-		<p>- Giấy chứng minh nhân thân (Hộ chiếu/Chứng minh Thư)</p>
-		<p>- Giấy xác nhận nơi cư trú (Hộ khẩu)</p>
-		<p>- Giấy chứng nhận độc thân</p>
-
+		-Giấy xác nhận tình trạng hôn nhân<br/>
+		-Chứng minh nhân dân/Hộ chiếu/Chứng minh thư<br/>
+		-Hộ khẩu<br/>
+		
+		<hr width="100%" align="center" />
+		<p>Yêu cầu khi đi mang theo giấy này !</p>
+		<hr width="100%" align="center" />
+		<br /><br /><br /><br /><br /><br />
 	</div>
 	<p>
 		<script type="text/javascript">

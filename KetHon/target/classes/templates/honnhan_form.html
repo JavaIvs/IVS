@@ -60,23 +60,30 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Dân Tộc</label>
+					<label class="control-label col-sm-2 ">Dân Tộc</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nam_dantoc}" />
-						<br />
+						<select class="form-control" th:field="*{nam_dantoc}">
+							<option th:each="dantoc:${dantocs}" th:value="${dantoc.id}"
+								th:text="${dantoc.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Quốc Tịch</label>
+					<label class="control-label col-sm-2 ">Quốc Tịch</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nam_quoctich}" />
-						<br />
+						<select class="form-control" th:field="*{nam_quoctich}">
+							<option th:each="quoctich:${quoctichs}" th:value="${quoctich.id}"
+								th:text="${quoctich.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Nơi Cư Trú</label>
+					<label class="control-label col-sm-2 ">Nơi Cư Trú</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nam_xa}" /><br />
+						<select class="form-control" th:field="*{nam_xa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
@@ -100,22 +107,30 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Dân Tộc</label>
+					<label class="control-label col-sm-2 ">Dân Tộc</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nu_dantoc}" /><br />
+						<select class="form-control" th:field="*{nu_dantoc}">
+							<option th:each="dantoc:${dantocs}" th:value="${dantoc.id}"
+								th:text="${dantoc.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Quốc Tịch</label>
+					<label class="control-label col-sm-2 ">Quốc Tịch</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nu_quoctich}" />
-						<br />
+						<select class="form-control" th:field="*{nu_quoctich}">
+							<option th:each="quoctich:${quoctichs}" th:value="${quoctich.id}"
+								th:text="${quoctich.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">Nơi Cư Trú</label>
+					<label class="control-label col-sm-2 ">Nơi Cư Trú</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nu_xa}" /><br />
+						<select class="form-control" th:field="*{nu_xa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
 					</div>
 				</div>
 				<div class="form-group">
