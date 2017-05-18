@@ -6,7 +6,7 @@
 	<groupId>com.huy.spring</groupId>
 	<artifactId>Test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>KetHon</name>
 	<description>Test</description>
