@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<nav th:replace="layout :: header"></nav>
+	<br />
+	<br />
+	<div class="jumbotron" th:object="${honnhan}">
+		<h1>Khai báo đăng ký hôn nhân thành công</h1>
+		<hr width="100%" align="center" />
+		<p th:text="'Mã hồ sơ đăng kí: '+${honnhan.id}"></p>
+		<hr width="100%" align="center" />
+		<br />
+		<p th:text="'Tên chồng: '+${honnhan.namhoten}"></p>
+		<p th:text="'Nơi cư trú: '+${honnhan.nam_xa}"></p>
+		<p th:text="'CMND: '+${honnhan.nam_cmnd}"></p>
+		<hr width="100%" align="center" />
+		<br />
+		<p th:text="'Tên vợ: '+${honnhan.nu_hoten}"></p>
+		<p th:text="'Nơi cư trú: '+${honnhan.nu_xa}"></p>
+		<p th:text="'CMND: '+${honnhan.nu_cmnd}"></p>
+		<hr width="100%" align="center" />
+		<div th:switch="${honnhan.idxa}">
+			<div th:each="xa: ${xas}">
+				<p th:case="${xa.id}"
+					th:text="'Anh/chị vui lòng mang theo những giấy tờ sau đến UBND xã ' + ${xa.name}+' để hoàn tất thủ tục đăng ký.'"></p>
+			</div>
+		</div>
+		<p>Hồ sơ:</p>
+		<p>- Giấy xác nhận tình trạng hôn nhân</p>
+		<p>- Giấy chứng minh nhân thân (Hộ chiếu/Chứng minh Thư)</p>
+		<p>- Giấy xác nhận nơi cư trú (Hộ khẩu)</p>
+		<p>- Giấy chứng nhận độc thân</p>
+
+	</div>
+	<p>
+		<script type="text/javascript">
+			function returnprint() {
+				window.print();
+			}
+		</script>
+		<!--this.style.display='none';huy.style.display='none';  -->
+		<a onclick="returnprint();" class="btn btn-primary btn-lg"
+			role="button">In Giấy Hẹn</a> <a id="huy"
+			th:href="@{/chuaxacminhlist}"
+			class="btn btn-primary btn-lg btn-danger"> Huỷ</a>
+	</p>
+	<!-- /.container -->
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

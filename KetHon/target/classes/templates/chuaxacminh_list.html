@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<nav th:replace="layout :: header"></nav>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<h1>Đơn Chưa Xác Minh</h1>
+	<br />
+	<div class="container main-content list">
+		<div th:if="${success}"
+			class="row alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span th:text="${success}"></span>
+		</div>
+
+		<th:block th:if="${#lists.isEmpty(honnhans)}">
+			<br />
+			<h3>Không có hôn nhân nào</h3>
+			<div class="row">
+				<a th:href="@{/dangkykethon}" class="btn btn-primary pull-left">
+					<span class="glyphicon glyphicon-plus"></span> Thêm Hôn Nhân
+				</a>
+			</div>
+		</th:block>
+		<th:block th:unless="${#lists.isEmpty(honnhans)}">
+			<div class="row">
+				<a th:href="@{/dangkykethon}" class="btn btn-primary pull-left">
+					<span class="glyphicon glyphicon-plus"></span> Thêm Hôn Nhân
+				</a>
+				<form class="form-inline pull-right" action="#"
+					th:action="@{/honnhan/chuaxacminh/search}" method="GET">
+					<div class="form-group">
+						<input type="text" class="form-control" name="q"
+							placeholder="Nhập tên" />
+					</div>
+					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+				</form>
+			</div>
+			<br />
+			<div class="row">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Mã Đơn</th>
+							<th>Nam</th>
+							<th>CMND</th>
+							<th>Ngày Đăng Ký</th>
+							<th>Ngày Hẹn</th>
+							<th>Nơi Đăng Ký</th>
+							<th>In Giấy Hẹn</th>
+							<th>Sửa</th>
+							<th>Xoá</th>
+							<th>Xác Minh</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="honnhan,iterStat : ${honnhans}">
+							<td th:text="${honnhan.id}"></td>
+							<td th:text="${honnhan.namhoten}"></td>
+							<td th:text="${honnhan.nam_cmnd}"></td>
+							<td th:text="${honnhan.ngaydangky}"></td>
+							<td th:text="${honnhan.ngayhen}"></td>
+							<div th:switch="${honnhan.idxa}">
+								<div th:each="xa: ${xas}">
+									<td th:case="${xa.id}" th:text="${xa.name}"></td>
+								</div>
+							</div>
+							<td><a th:href="@{/honnhan/in/{id}/edit(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-print"></span></a></td>
+							<td><a th:href="@{/honnhan/{id}/edit(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-pencil"></span></a></td>
+							<td><a th:href="@{/honnhan/{id}/delete(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-trash"></span></a></td>
+							<td><a
+								th:href="@{/honnhan/xacminh/{id}/edit(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-ok"></span></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</th:block>
+	</div>
+	<!-- /.container -->
+
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<nav th:replace="layout :: header"></nav>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<h1>Đơn Đã Xác Minh</h1>
+	<br />
+	<div class="container main-content list">
+		<div th:if="${success}"
+			class="row alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span th:text="${success}"></span>
+		</div>
+		<th:block th:unless="${#lists.isEmpty(honnhans)}">
+			<div class="row">
+				<form class="form-inline pull-right" action="#"
+					th:action="@{/honnhan/daxacminh/search}" method="GET">
+					<div class="form-group">
+						<input type="text" class="form-control" name="q"
+							placeholder="Nhập tên" />
+					</div>
+					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+				</form>
+			</div>
+			<br />
+			<div class="row">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Mã Đơn</th>
+							<th>Nam</th>
+							<th>CMND</th>
+							<th>Ngày Đăng Ký</th>
+							<th>Ngày Hẹn</th>
+							<th>Nơi Đăng Ký</th>
+							<th>Xoá</th>
+							<th>Duyệt</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="honnhan,iterStat : ${honnhans}">
+							<td th:text="${honnhan.id}"></td>
+							<td th:text="${honnhan.namhoten}"></td>
+							<td th:text="${honnhan.nam_cmnd}"></td>
+							<td th:text="${honnhan.ngaydangky}"></td>
+							<td th:text="${honnhan.ngayhen}"></td>
+							<div th:switch="${honnhan.idxa}">
+								<div th:each="xa: ${xas}">
+									<td th:case="${xa.id}" th:text="${xa.name}"></td>
+								</div>
+							</div>
+							<td><a th:href="@{/honnhan/daxacminh/{id}/delete(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-trash"></span></a></td>
+							<td><a
+								th:href="@{/honnhan/duyet/{id}/edit(id=${honnhan.id})}"><span
+									class="glyphicon glyphicon-heart"></span></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</th:block>
+	</div>
+	<!-- /.container -->
+
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

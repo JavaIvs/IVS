@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<nav th:replace="layout :: header"></nav>
+	<div class="container main-content form">
+		<div class="row">
+			<form onsubmit="returndate();" action="#" th:action="@{/honnhan/xacminh/save}" th:object="${honnhan}"
+				method="POST" novalidate="novalidate">
+				<input type="hidden" th:field="*{id}" /> <br /> <br /> <br /> <br />
+				<br />
+				<h1>Xác Minh hôn nhân</h1>
+				<h3>Thông tin đơn</h3>
+				<div class="form-group">
+					<label class="control-label col-sm-2 ">Xã</label>
+					<div class="col-sm-10">
+						<select class="form-control" th:field="*{idxa}">
+							<option th:each="xa:${xas}" th:value="${xa.id}"
+								th:text="${xa.name}"></option>
+						</select> <br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Ngày Đăng Ký</label>
+					<div class="col-sm-10">
+						<input id="ngaydk" type="date" class="form-control"
+							th:field="*{ngaydangky}" /> <br />
+					</div>
+				</div>
+				<div hidden="" class="form-group">
+					<label class="control-label col-sm-2">Ngày Hẹn</label>
+					<div class="col-sm-10">
+						<input id="ngayhen" type="date" class="form-control"
+							th:field="*{ngayhen}" /><br />
+					</div>
+				</div>
+				<div hidden="" class="form-group">
+					<label class="control-label col-sm-2">Trạng Thái</label>
+					<div class="col-sm-10">
+						<select id="trangthai" class="form-control" th:field="*{trangthai}">
+							<option value="chuaxacminh">Chưa Xác Minh</option>
+							<option value="daxacminh">Đã Xác Minh</option>
+							<option value="daduyet">Đã Duyệt</option>
+						</select> <br />
+					</div>
+				</div>
+				<h3>Thông Tin Nam</h3>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Họ Tên</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{namhoten}" />
+						<br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Ngày Sinh</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" th:field="*{nam_ngaysinh}" />
+						<br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Dân Tộc</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nam_dantoc}" />
+						<br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Quốc Tịch</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nam_quoctich}" />
+						<br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Nơi Cư Trú</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nam_xa}" /><br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">CMND</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nam_cmnd}" /><br />
+					</div>
+				</div>
+				<h3>Thông tin nữ</h3>
+				<br />
+				<div class="form-group">
+					<label class="control-label col-sm-2">Họ Tên</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nu_hoten}" /><br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Ngày Sinh</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" th:field="*{nu_ngaysinh}" /><br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Dân Tộc</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nu_dantoc}" /><br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Quốc Tịch</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nu_quoctich}" />
+						<br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Nơi Cư Trú</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nu_xa}" /><br />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">CMND</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nu_cmnd}" />
+						<br />
+					</div>
+				</div>
+				<script type="text/javascript">
+					function returndate() {
+						var xacminh=document.getElementById('trangthai').value ="daxacminh";
+					}
+				</script>
+				<button type="submit"
+					class="btn btn-primary btn-lg btn-success">Xác Minh</button>
+					<a th:href="@{/chuaxacminhlist}" class="btn btn-primary btn-lg btn-danger"> Huỷ</a>
+			</form>
+		</div>
+	</div>
+	<!-- /.container -->
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
